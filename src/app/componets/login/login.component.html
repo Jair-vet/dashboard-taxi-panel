@@ -1,0 +1,48 @@
+<div class="min-h-screen flex items-center justify-center bg-[#3f3f3f]">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-96">
+      <div class="text-center mb-4">
+        <img src="../../../assets/img/logo-taxi.png" alt="Logo" class="mx-auto w-32 h-24">
+      </div>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <!-- Correo -->
+        <div class="mb-5">
+            <!-- <label for="email" class="block text-gray-700 text-sm">CORREO ELECTRÓNICO</label> -->
+            <input 
+              id="email" 
+              type="email" 
+              formControlName="email" 
+              placeholder="correo electronico"
+              class="border text-sm border-gray-300 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-yellow-500 placeholder:uppercase"
+            >
+            <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="text-red-500 text-sm uppercase">
+              Correo es requerido y debe ser válido.
+            </div>
+        </div>
+  
+        <div class="mb-5">
+          <!-- <label for="password" class="block text-gray-700 text-sm">CONTRASEÑA</label> -->
+          <input 
+            id="password" 
+            type="password" 
+            formControlName="password" 
+            placeholder="contraseña"
+            class="border text-sm border-gray-300 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-yellow-500 placeholder:uppercase">
+          <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-red-500 text-sm uppercase">
+            Contraseña es requerida.
+          </div>
+        </div>
+  
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input type="checkbox" formControlName="rememberMe" class="form-checkbox text-black h-4 w-4">
+            <span class="ml-2 text-gray-700">¿RECORDAR CORREO?</span>
+          </label>
+        </div>
+  
+        <div>
+          <button type="submit" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-900 focus:outline-none" [disabled]="loginForm.invalid">INICIAR SESIÓN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
